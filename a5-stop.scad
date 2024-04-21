@@ -14,8 +14,8 @@ size = 30;
 a = 11.3;
 b = 21.6;
 c = 1.35;
-d = 2;
-clip_height = 0.5;
+d = 10;
+clip_height = 0.7;
 
 module all() {
     intersection() {
