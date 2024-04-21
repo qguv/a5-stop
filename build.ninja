@@ -1,0 +1,4 @@
+rule openscad
+    command = openscad -o $out $in
+
+build a5.3mf: openscad a5.scad
