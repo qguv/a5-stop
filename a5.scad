@@ -15,8 +15,7 @@ a = 11.3;
 b = 21.6;
 c = 1.35;
 d = 2;
-angle = 10;
-hh = wall / (sin(angle) * tan(angle) + cos(angle));
+clip_height = 0.5;
 
 module all() {
     intersection() {
@@ -30,10 +29,8 @@ module all() {
             translate([-b, 0, 0]) {
 
                 // clip opposing side
-                translate([wall + c, 0, 0]) {
-                    rotate([0, 0, 180 - angle]) {
-                        cube([hh, hh, d]);
-                    }
+                translate([c, 0, 0]) {
+                    cube([wall, clip_height, d]);
                 }
 
                 // underside/clip
