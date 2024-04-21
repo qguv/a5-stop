@@ -20,22 +20,28 @@ hh = wall / (sin(angle) * tan(angle) + cos(angle));
 
 module all() {
     intersection() {
+
+        // second quadrant mask (looking at XY plane from positive Z)
         translate([-size, 0, -size/2]) {
             cube(size);
         }
+
         translate([0, wall, 0]) {
             translate([-b, 0, 0]) {
-                
+
+                // clip opposing side
                 translate([wall + c, 0, 0]) {
                     rotate([0, 0, 180 - angle]) {
                         cube([hh, hh, d]);
                     }
                 }
-                
+
+                // underside/clip
                 translate([0, -wall, 0]) {
                     cube([c + wall, wall, d]);
                 }
-                
+
+                // walls
                 translate([0, a, 0]) {
                     translate([size / 2 - wall, -size / 2 + wall, 0]) {
                         rect_tube(size=size, wall=wall, rounding=3, h=d);
