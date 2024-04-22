@@ -52,7 +52,7 @@ module all() {
                 // walls
                 translate([0, a, 0]) {
                     translate([size / 2 - wall, -size / 2 + wall, 0]) {
-                        rect_tube(size=size, wall=wall, rounding=3, h=d);
+                        rect_tube(size=size, wall=wall, rounding=3+wall, h=d);
                     }
                 }
             }
