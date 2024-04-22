@@ -12,31 +12,42 @@ wall = 0.8;
 fudge = 1;
 size = 30;
 a = 11.3;
-b = 21.6;
+b = 22.6;
 c = 1.35;
-d = 10;
+d = 20;
 clip_height = 0.7;
+bumper_height = 8;
+
+module under_clip() {
+    // clip opposing side
+    translate([c, 0, 0]) {
+        cube([wall, clip_height, d]);
+    }
+
+    // underside/clip
+    translate([0, -wall, 0]) {
+        cube([c + wall, wall, d]);
+    }
+}
 
 module all() {
+
+    // bumper
+    translate([-wall, a + wall, 0]) {
+        cube([wall, bumper_height, d]);
+    }
+
     intersection() {
 
         // second quadrant mask (looking at XY plane from positive Z)
-        translate([-size, 0, -size/2]) {
-            cube(size);
+        translate([-size, 0, 0]) {
+            cube([size, size, d]);
         }
 
         translate([0, wall, 0]) {
             translate([-b, 0, 0]) {
 
-                // clip opposing side
-                translate([c, 0, 0]) {
-                    cube([wall, clip_height, d]);
-                }
-
-                // underside/clip
-                translate([0, -wall, 0]) {
-                    cube([c + wall, wall, d]);
-                }
+                under_clip();
 
                 // walls
                 translate([0, a, 0]) {
