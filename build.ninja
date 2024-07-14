@@ -2,7 +2,7 @@ rule render3d
     command = openscad -o $out $in
 
 rule render2d
-    command = openscad --colorscheme BeforeDawn -o $out $in
+    command = openscad --render --colorscheme BeforeDawn -o $out $in
 
 build a5-stop.3mf: render3d a5-stop.scad | BOSL2/std.scad
 build a5-stop.stl: render3d a5-stop.scad | BOSL2/std.scad
