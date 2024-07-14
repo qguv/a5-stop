@@ -1,10 +1,3 @@
-// animation: fix camera in place
-//$vpr = [$vpr[0], 0, $vpr[2]];
-//$vpt = [0, 0, 0];
-
-// animation: spin
-//$vpr = [$vpr[0], 0, 360 * $t];
-
 include <BOSL2/std.scad>
 
 $fn = 90;

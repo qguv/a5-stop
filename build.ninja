@@ -1,4 +1,9 @@
-rule openscad
+rule render3d
     command = openscad -o $out $in
 
-build a5-stop.3mf: openscad a5-stop.scad
+rule render2d
+    command = openscad --colorscheme BeforeDawn -o $out $in
+
+build a5-stop.3mf: render3d a5-stop.scad
+build a5-stop.stl: render3d a5-stop.scad
+build a5-stop.png: render2d a5-stop.scad
